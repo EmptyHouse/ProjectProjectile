@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 3daa30e5fab7d854284137c86d6e2308
-timeCreated: 1491101570
+timeCreated: 1491152144
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -20,6 +20,14 @@ TextureImporter:
     21300026: MomoRun1_05
     21300028: MomoRun1_06
     21300030: MomoRun1_08
+    21300032: MomoDodge_00
+    21300034: MomoDodge_01
+    21300036: MomoDodge_02
+    21300038: MomoDodge_03
+    21300040: MomoDodge_04
+    21300042: MomoDodge_05
+    21300044: MomoDodge_06
+    21300046: MomoDodge_07
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -314,6 +322,110 @@ TextureImporter:
         height: 36
       alignment: 9
       pivot: {x: 0.51477504, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MomoDodge_00
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 285
+        width: 29
+        height: 31
+      alignment: 9
+      pivot: {x: 0.44742057, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MomoDodge_01
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 288
+        width: 34
+        height: 27
+      alignment: 9
+      pivot: {x: 0.44319355, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MomoDodge_02
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 285
+        width: 29
+        height: 26
+      alignment: 9
+      pivot: {x: 0.51402074, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MomoDodge_03
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 285
+        width: 32
+        height: 28
+      alignment: 9
+      pivot: {x: 0.47458696, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MomoDodge_04
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 285
+        width: 32
+        height: 23
+      alignment: 9
+      pivot: {x: 0.5063534, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MomoDodge_05
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 285
+        width: 29
+        height: 32
+      alignment: 9
+      pivot: {x: 0.48597875, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MomoDodge_06
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 285
+        width: 24
+        height: 34
+      alignment: 9
+      pivot: {x: 0.4957644, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MomoDodge_07
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 285
+        width: 25
+        height: 35
+      alignment: 9
+      pivot: {x: 0.5325281, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
