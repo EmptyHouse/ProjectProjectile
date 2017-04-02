@@ -17,7 +17,7 @@ public class Hitbox : MonoBehaviour {
                                //Alternatively if they are the same rank, they will canel eachother out and no damage should be taken
 
     public HitboxManager manager { private get; set; }
-
+    public bool hitboxActive = true;
     Transform parentObject;
 
     void Start()
@@ -40,7 +40,7 @@ public class Hitbox : MonoBehaviour {
 
     void onHurtboxEntered(Hurtbox hBox)
     {
-        //AND HERE
+        
     }
 
     void onHitboxExit(Hitbox hBox)
@@ -70,5 +70,10 @@ public class Hitbox : MonoBehaviour {
     void OnTriggerExit2D (Collider2D collider)
     {
 
+    }
+
+    public Transform getParentObject()
+    {
+        return parentObject;
     }
 }

@@ -9,8 +9,7 @@ public class FlipSprite : MonoBehaviour {
     public bool startsLeft = true; //Set this to false if you drew the sprite sheet with the characters facing toward the right of the screen
 
     SpriteRenderer sprite;
-    Movement movement;// Not sure if this is the best way to go about implementing direction...\
-    bool spriteLeft = true;
+    Movement movement;// Not sure if this is the best way to go about implementing direction...
 
 
 	void Start () {

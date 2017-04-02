@@ -17,4 +17,12 @@ public class HitboxManager : MonoBehaviour {
             h.manager = this;
         }
     }
+
+    public void resetAllHitboxes()
+    {
+        foreach(Hitbox h in allHitboxes)
+        {
+            h.hitboxActive = true;
+        }
+    }
 }
