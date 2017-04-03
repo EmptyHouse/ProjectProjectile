@@ -6,7 +6,7 @@ public class BowMechanics : MonoBehaviour {
     public ProjectileMechanics[] availableArrows;
     public int maxArrowsInMem = 5;
     public Transform centerLaunch;
-    
+
     public Transform upLaunch;
     public Transform downLaunch;
     public Vector2 launchDirectionCenter = Vector2.left;
@@ -77,5 +77,17 @@ public class BowMechanics : MonoBehaviour {
     public void setDirectionUp(bool button)
     {
         directionUp = button;
+    }
+
+    //Destoys all the arrow objects that were created by the bow
+    void OnDestroy()
+    {
+        for (int i = 0; i < projectilesInMemory.GetLength(0); i++)
+        {
+            for (int j = 0; j < projectilesInMemory.GetLength(1); j++)
+            {
+                if (projectilesInMemory[i, j] != null) Destroy(projectilesInMemory[i, j]);
+            }
+        }
     }
 }

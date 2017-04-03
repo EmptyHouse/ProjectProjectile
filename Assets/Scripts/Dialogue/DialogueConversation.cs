@@ -6,8 +6,10 @@ using UnityEngine;
 public class DialogueConversation : MonoBehaviour {
     public string fileName = "Default.txt";
 
+
     DialogueNode headNode;
     DialogueNode currentNode;
+    Transform playerObject;
 
     string filePath;
 
@@ -22,8 +24,12 @@ public class DialogueConversation : MonoBehaviour {
 
     }
 
+    void OnTriggerEnter2D(Collider2D collider)
+    {
 
-    void parseNodes(string fileName)
+    }
+
+    void OnTriggerExit2D(Collider2D collider)
     {
 
     }

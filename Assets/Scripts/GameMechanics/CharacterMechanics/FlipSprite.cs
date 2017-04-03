@@ -6,7 +6,7 @@ public class FlipSprite : MonoBehaviour {
     public bool useScale = true;
     public bool flipActive = true;
     public bool isLeft = true;
-    public bool startsLeft = true; //Set this to false if you drew the sprite sheet with the characters facing toward the right of the screen
+    //public bool startsLeft = true; //Set this to false if you drew the sprite sheet with the characters facing toward the right of the screen
 
     SpriteRenderer sprite;
     Movement movement;// Not sure if this is the best way to go about implementing direction...
@@ -29,8 +29,7 @@ public class FlipSprite : MonoBehaviour {
     public void setDirection(bool isLeft)
     {
         //Even if flip is inActive you can still flip the sprite out side of the update function
-        if (startsLeft) updateSpriteDirection(isLeft);
-        else updateSpriteDirection(!isLeft);
+        updateSpriteDirection(isLeft);
     }
     
     void updateSpriteDirection(bool isLeft)

@@ -16,8 +16,8 @@ public class GroundCollision : MonoBehaviour {
     {
         rigid = GetComponent<Rigidbody2D>();
         customGravity = GetComponent<CustomGravity>();
-        layerMask = -1;
-        layerMask -= (1 << LayerMask.NameToLayer("Ground"));
+        layerMask = 0;
+        layerMask += (1 << LayerMask.NameToLayer("Ground"));
 
     }
 

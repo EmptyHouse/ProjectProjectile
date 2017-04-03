@@ -39,7 +39,7 @@ public class Jump : MonoBehaviour {
         else if (jumpInput && doubleJumpActive)
         {
             doubleJumpActive = false;
-            rigid.velocity = rigid.velocity + (-customGravity.gravityDirection * doubleJumpVelocity);
+            rigid.velocity = (-customGravity.gravityDirection * doubleJumpVelocity) + new Vector2(rigid.velocity.x, 0);
         }
     }
 }
