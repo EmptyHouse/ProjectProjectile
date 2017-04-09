@@ -57,4 +57,14 @@ public class FlipSprite : MonoBehaviour {
             }
         }
     }
+
+    /// <summary>
+    /// This method is used whenever there is an animation that requres 
+    /// transform movement of the sprite
+    /// </summary>
+    public void resetTransformToSprite()
+    {
+        transform.position = sprite.transform.position;
+        sprite.transform.localPosition = Vector3.zero;
+    }
 }

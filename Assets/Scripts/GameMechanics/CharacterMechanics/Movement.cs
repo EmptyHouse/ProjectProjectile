@@ -37,7 +37,12 @@ public class Movement : MonoBehaviour {
 
     public void setHorizontalInput(float hInput)
     {
-        if (!inputActive) return;
+        if (!inputActive)
+        {
+            hInput = 0;
+            return;
+        }
+        
         this.hInput = hInput;
     }
 
