@@ -11,6 +11,7 @@ public class GroundCollision : MonoBehaviour {
     Rigidbody2D rigid;
     int layerMask;
     bool isGrounded;
+    Animator anim;
 
     void Start()
     {
@@ -18,12 +19,12 @@ public class GroundCollision : MonoBehaviour {
         customGravity = GetComponent<CustomGravity>();
         layerMask = 0;
         layerMask += (1 << LayerMask.NameToLayer("Ground"));
-
+        anim = GetComponent<Animator>();
     }
 
     void Update()
     {
-
+        anim.SetBool("InAir", !isGrounded);
     }
 
     void FixedUpdate()
