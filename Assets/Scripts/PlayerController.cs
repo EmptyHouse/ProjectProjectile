@@ -6,12 +6,14 @@ public class PlayerController : MonoBehaviour {
     Movement movement;
     Jump jump;
     BowMechanics bowMechanics;
+    Dodge dodgeMechanics;
 
     void Start()
     {
         movement = GetComponent<Movement>();
         bowMechanics = GetComponentInChildren<BowMechanics>();
         jump = GetComponent<Jump>();
+        dodgeMechanics = GetComponent<Dodge>();
     }
 
     void Update()
@@ -23,6 +25,7 @@ public class PlayerController : MonoBehaviour {
         bowMechanics.setDirectionDown(Input.GetButton("DirectionDown"));
         bowMechanics.setDirectionUp(Input.GetButton("DirectionUp"));
         bowMechanics.fire(Input.GetButtonDown("Fire"));
+        dodgeMechanics.dodge(Input.GetButtonDown("Dodge"));
     }
 
 

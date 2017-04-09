@@ -10,6 +10,7 @@ public class ProjectileMechanics : MonoBehaviour {
     public bool updateDirection = true;
 
     Rigidbody2D rigid;
+    public float deadTimer = 2;
 
     protected virtual void Awake()
     {
@@ -17,12 +18,18 @@ public class ProjectileMechanics : MonoBehaviour {
         rigid.gravityScale = 0;        
     }
 
+    void OnEnable()
+    {
+        deadTimer = 2;
+    }
+
     protected virtual void Update()
     {
         if (rigid.velocity == Vector2.zero) updateProjectileRotation(launchDirection.x, launchDirection.y);
         else if (updateDirection) updateProjectileRotation();
         rigid.velocity = launchDirection * maxLaunchSpeed;
-
+        deadTimer -= Time.deltaTime;
+        if (deadTimer < 0) gameObject.SetActive(false);
     }
 
     public void updateProjectileRotation()
