@@ -1,32 +1,32 @@
 fileFormatVersion: 2
 guid: 063a2fe526ee96a498ad250aa533ea7a
-timeCreated: 1491758958
+timeCreated: 1491777690
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: PhliaSpriteSheet_0
-    21300002: PhliaSpriteSheet_1
-    21300004: PhliaSpriteSheet_2
-    21300006: PhliaSpriteSheet_3
-    21300008: PhliaSpriteSheet_4
-    21300010: PhliaSpriteSheet_5
-    21300012: PhliaSpriteSheet_6
-    21300014: PhliaSpriteSheet_7
-    21300016: PhliaSpriteSheet_8
-    21300018: PhliaSpriteSheet_9
-    21300020: PhliaSpriteSheet_10
-    21300022: PhliaSpriteSheet_11
+    21300000: Philia_Idle_00
+    21300002: Philia_Idle_01
+    21300004: Philia_Walk_00
+    21300006: Philia_Walk_01
+    21300008: Philia_Walk_02
+    21300010: Philia_Walk_03
+    21300012: Philia_Run_00
+    21300014: Philia_Run_01
+    21300016: Philia_Run_02
+    21300018: Philia_Air_Up
+    21300020: Philia_Air_Down
+    21300022: Philia_Crouch
     21300024: PhliaSpriteSheet_12
     21300026: PhliaSpriteSheet_13
-    21300028: PhliaSpriteSheet_14
-    21300030: PhliaSpriteSheet_15
-    21300032: PhliaSpriteSheet_16
-    21300034: PhliaSpriteSheet_17
-    21300036: PhliaSpriteSheet_18
-    21300038: PhliaSpriteSheet_19
-    21300040: PhliaSpriteSheet_20
-    21300042: PhliaSpriteSheet_21
-    21300044: PhliaSpriteSheet_22
+    21300028: Philia_Arrow_Straight_00
+    21300030: Philia_Arrow_Straight_01
+    21300032: Philia_Arrow_Straight_02
+    21300034: Philia_ArrowUp_00
+    21300036: Philia_ArrowUp_01
+    21300038: Philia_ArrowUp_02
+    21300040: Philia_ArrowDown_00
+    21300042: Philia_ArrowDown_01
+    21300044: Philia_ArrowDown_02
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -109,7 +109,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PhliaSpriteSheet_0
+      name: Philia_Idle_00
       rect:
         serializedVersion: 2
         x: 2
@@ -122,7 +122,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PhliaSpriteSheet_1
+      name: Philia_Idle_01
       rect:
         serializedVersion: 2
         x: 17
@@ -135,7 +135,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PhliaSpriteSheet_2
+      name: Philia_Walk_00
       rect:
         serializedVersion: 2
         x: 2
@@ -148,7 +148,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PhliaSpriteSheet_3
+      name: Philia_Walk_01
       rect:
         serializedVersion: 2
         x: 17
@@ -161,7 +161,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PhliaSpriteSheet_4
+      name: Philia_Walk_02
       rect:
         serializedVersion: 2
         x: 30
@@ -174,7 +174,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PhliaSpriteSheet_5
+      name: Philia_Walk_03
       rect:
         serializedVersion: 2
         x: 44
@@ -187,33 +187,33 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PhliaSpriteSheet_6
+      name: Philia_Run_00
       rect:
         serializedVersion: 2
         x: 2
-        y: 175
+        y: 174
         width: 13
-        height: 16
+        height: 17
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PhliaSpriteSheet_7
+      name: Philia_Run_01
       rect:
         serializedVersion: 2
         x: 18
-        y: 174
+        y: 173
         width: 11
-        height: 16
+        height: 17
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PhliaSpriteSheet_8
+      name: Philia_Run_02
       rect:
         serializedVersion: 2
         x: 33
@@ -226,7 +226,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PhliaSpriteSheet_9
+      name: Philia_Air_Up
       rect:
         serializedVersion: 2
         x: 2
@@ -239,7 +239,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PhliaSpriteSheet_10
+      name: Philia_Air_Down
       rect:
         serializedVersion: 2
         x: 16
@@ -252,7 +252,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PhliaSpriteSheet_11
+      name: Philia_Crouch
       rect:
         serializedVersion: 2
         x: 1
@@ -291,7 +291,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PhliaSpriteSheet_14
+      name: Philia_Arrow_Straight_00
       rect:
         serializedVersion: 2
         x: 2
@@ -304,7 +304,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PhliaSpriteSheet_15
+      name: Philia_Arrow_Straight_01
       rect:
         serializedVersion: 2
         x: 21
@@ -317,7 +317,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PhliaSpriteSheet_16
+      name: Philia_Arrow_Straight_02
       rect:
         serializedVersion: 2
         x: 40
@@ -330,7 +330,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PhliaSpriteSheet_17
+      name: Philia_ArrowUp_00
       rect:
         serializedVersion: 2
         x: 1
@@ -343,7 +343,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PhliaSpriteSheet_18
+      name: Philia_ArrowUp_01
       rect:
         serializedVersion: 2
         x: 25
@@ -356,7 +356,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PhliaSpriteSheet_19
+      name: Philia_ArrowUp_02
       rect:
         serializedVersion: 2
         x: 48
@@ -369,7 +369,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PhliaSpriteSheet_20
+      name: Philia_ArrowDown_00
       rect:
         serializedVersion: 2
         x: 1
@@ -382,7 +382,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PhliaSpriteSheet_21
+      name: Philia_ArrowDown_01
       rect:
         serializedVersion: 2
         x: 25
@@ -395,7 +395,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PhliaSpriteSheet_22
+      name: Philia_ArrowDown_02
       rect:
         serializedVersion: 2
         x: 49

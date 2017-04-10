@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
+    Animator anim;
     Movement movement;
     Jump jump;
     BowMechanics bowMechanics;
@@ -10,6 +11,7 @@ public class PlayerController : MonoBehaviour {
 
     void Start()
     {
+        anim = GetComponent<Animator>();
         movement = GetComponent<Movement>();
         bowMechanics = GetComponentInChildren<BowMechanics>();
         jump = GetComponent<Jump>();
@@ -20,6 +22,7 @@ public class PlayerController : MonoBehaviour {
     {
         float hInput = Input.GetAxisRaw("Horizontal");
 
+        anim.SetFloat("Vertical", Input.GetAxisRaw("Vertical"));
         movement.setHorizontalInput(hInput);
         jump.jump(Input.GetButtonDown("Jump"));
         bowMechanics.setDirectionDown(Input.GetButton("DirectionDown"));
@@ -28,6 +31,9 @@ public class PlayerController : MonoBehaviour {
         dodgeMechanics.dodge(Input.GetButtonDown("Dodge"));
     }
 
-
+    public void fireArrow()
+    {
+        bowMechanics.fire();
+    }
 
 }

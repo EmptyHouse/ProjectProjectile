@@ -18,6 +18,7 @@ public class BowMechanics : MonoBehaviour {
     int currentListPosition = 0;
     bool directionUp;
     bool directionDown;
+    Animator anim;
 
 
     void Start()
@@ -31,12 +32,12 @@ public class BowMechanics : MonoBehaviour {
                 projectilesInMemory[i, j].gameObject.SetActive(false);
             }
         }
+        anim = transform.parent.GetComponent<Animator>();
 
     }
 
-    public void fire(bool fireInput)
+    public void fire()
     {
-        if (!fireInput) return;
         Transform pos = centerLaunch;
         Vector2 dir = launchDirectionCenter;
         if (directionUp)
@@ -57,6 +58,12 @@ public class BowMechanics : MonoBehaviour {
         p.launch(dir);
         currentListPosition = (currentListPosition + 1) % maxArrowsInMem;
 
+    }
+
+    public void fire(bool fireInput)
+    {
+        if (!fireInput) return;
+        anim.SetTrigger("Shoot");
     }
 
     public void moveNext()
