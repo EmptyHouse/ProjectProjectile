@@ -27,6 +27,7 @@ public class Movement : MonoBehaviour {
     void Update()
     {
         anim.SetFloat("Speed", Mathf.Abs(hInput));
+        anim.SetFloat("VerticalVelocity", rigid.velocity.y);
     }
 
     void FixedUpdate()
