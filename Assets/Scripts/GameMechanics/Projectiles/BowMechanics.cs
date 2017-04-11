@@ -63,18 +63,11 @@ public class BowMechanics : MonoBehaviour {
     public void fire(bool fireInput)
     {
         if (!fireInput) return;
+        anim.SetBool("AngleUp", directionUp);
+        anim.SetBool("AngleDown", directionDown);
         anim.SetTrigger("Shoot");
     }
 
-    public void moveNext()
-    {
-
-    }
-
-    public void addArrowType(ProjectileMechanics pMechanics)
-    {
-
-    }
 
     public void setDirectionDown(bool button)
     {
