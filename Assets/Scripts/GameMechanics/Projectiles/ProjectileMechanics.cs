@@ -8,6 +8,8 @@ public class ProjectileMechanics : MonoBehaviour {
     public Vector2 launchDirection = Vector2.right;
     public float maxLaunchSpeed = 5;
     public bool updateDirection = true;
+    public float damageToDeal = 10;
+
 
     Rigidbody2D rigid;
     public float deadTimer = 2;
@@ -59,5 +61,15 @@ public class ProjectileMechanics : MonoBehaviour {
     {
         launchDirection = direction;
         rigid.velocity = direction.normalized * maxLaunchSpeed;        
+    }
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        CharacterInfo cInfo = collider.GetComponent<CharacterInfo>();
+        if (cInfo)
+        {
+            cInfo.takeDamage(damageToDeal);
+            gameObject.SetActive(false);
+        }
     }
 }
