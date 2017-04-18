@@ -7,8 +7,6 @@ public class BowMechanics : MonoBehaviour {
     public int maxArrowsInMem = 5;
     public Transform centerLaunch;
 
-    public Transform upLaunch;
-    public Transform downLaunch;
     public Vector2 launchDirectionCenter = Vector2.left;
     public Vector2 lauchDirectionUp = new Vector2(-1, 1).normalized;
     public Vector2 lauchDirectionDown = new Vector2(-1, -1).normalized;
@@ -38,22 +36,15 @@ public class BowMechanics : MonoBehaviour {
 
     public void fire()
     {
-        Transform pos = centerLaunch;
+        Vector3 pos = this.transform.position;
         Vector2 dir = launchDirectionCenter;
-        if (directionUp)
-        {
-            pos = upLaunch;
-            dir = lauchDirectionUp;
-        }
-        else if (directionDown)
-        {
-            pos = downLaunch;
-            dir = lauchDirectionDown;
-        }
-        dir = new Vector2(dir.x * transform.parent.localScale.x, dir.y).normalized;
+        print("Right" + transform.right);
+        print("Up" + transform.up);
+        print("forward" + transform.forward);
+        dir = new Vector2(transform.parent.localScale.x * this.transform.right.x, this.transform.right.y);
         ProjectileMechanics p = projectilesInMemory[currentArrowSelected, currentListPosition];
         p.gameObject.SetActive(true);
-        p.transform.position = pos.position;
+        p.transform.position = pos;
         p.updateProjectileRotation(dir.x, dir.y);
         p.launch(dir);
         currentListPosition = (currentListPosition + 1) % maxArrowsInMem;

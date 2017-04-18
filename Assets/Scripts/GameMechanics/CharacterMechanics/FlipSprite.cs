@@ -5,7 +5,7 @@ using UnityEngine;
 public class FlipSprite : MonoBehaviour {
     public bool useScale = true;
     public bool flipActive = true;
-    public bool isLeft = true;
+    public bool isRight = true;
     //public bool startsLeft = true; //Set this to false if you drew the sprite sheet with the characters facing toward the right of the screen
 
     SpriteRenderer sprite;
@@ -15,28 +15,28 @@ public class FlipSprite : MonoBehaviour {
 	void Start () {
         sprite = GetComponentInChildren<SpriteRenderer>();
         movement = GetComponent<Movement>();
-        setDirection(isLeft);
+        setDirection(isRight);
 	}
 	
 
 	void Update () {
         if (!flipActive) return;
-        if (movement.getHorizontalInput() > .01f) isLeft = false;
-        if (movement.getHorizontalInput() < -.01f) isLeft = true;
-        setDirection(isLeft);
+        if (movement.getHorizontalInput() > .01f) isRight = true;
+        if (movement.getHorizontalInput() < -.01f) isRight = false;
+        setDirection(isRight);
 	}
 
-    public void setDirection(bool isLeft)
+    public void setDirection(bool isRight)
     {
         //Even if flip is inActive you can still flip the sprite out side of the update function
-        updateSpriteDirection(isLeft);
+        updateSpriteDirection(isRight);
     }
     
-    void updateSpriteDirection(bool isLeft)
+    void updateSpriteDirection(bool isRight)
     {
         if (useScale)
         {
-            if (isLeft)
+            if (isRight)
             {
                 transform.localScale = new Vector3(1, 1, 1);
             }
@@ -47,7 +47,7 @@ public class FlipSprite : MonoBehaviour {
         }
         else
         {
-            if (isLeft)
+            if (isRight)
             {
                 sprite.flipX = false;
             }
