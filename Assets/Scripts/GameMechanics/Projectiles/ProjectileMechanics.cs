@@ -41,9 +41,9 @@ public class ProjectileMechanics : MonoBehaviour {
 
     public void updateProjectileRotation(float x, float y)
     {
-        print(x + "  " + y);
+        //print(x + "  " + y);
         float direction = Mathf.Atan2(y, x) * Mathf.Rad2Deg;
-        direction += 180;
+        //direction += 180;
         //print(direction + " X = " + x + " Y = " + y);
         setRotation(direction);
     }

@@ -38,14 +38,14 @@ public class BowMechanics : MonoBehaviour {
     {
         Vector3 pos = this.transform.position;
         Vector2 dir = launchDirectionCenter;
-        print("Right" + transform.right);
-        print("Up" + transform.up);
-        print("forward" + transform.forward);
-        dir = new Vector2(transform.parent.localScale.x * this.transform.right.x, this.transform.right.y);
+        //print("Right" + transform.right);
+        //print("Up" + transform.up);
+        //print("forward" + transform.forward);
+        dir = new Vector2(transform.parent.localScale.x * this.transform.right.x, transform.parent.localScale.x * this.transform.right.y);
         ProjectileMechanics p = projectilesInMemory[currentArrowSelected, currentListPosition];
         p.gameObject.SetActive(true);
         p.transform.position = pos;
-        p.updateProjectileRotation(dir.x, dir.y);
+        //p.updateProjectileRotation(dir.x, dir.y);
         p.launch(dir);
         currentListPosition = (currentListPosition + 1) % maxArrowsInMem;
 

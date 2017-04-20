@@ -25,9 +25,10 @@ public class GroundCollision : MonoBehaviour {
     void Update()
     {
         anim.SetBool("InAir", !isGrounded);
+        checkHitGround();
     }
 
-    void FixedUpdate()
+    void checkHitGround()
     {
         
         RaycastHit2D hit;
