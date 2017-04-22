@@ -46,6 +46,6 @@ public class DebugSettings : MonoBehaviour {
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.D)) slowMotion = true;
+        if (Input.GetKeyDown(KeyCode.Keypad0)) slowMotion = true;
     }
 }

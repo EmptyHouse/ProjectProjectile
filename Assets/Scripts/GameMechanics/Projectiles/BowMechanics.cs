@@ -11,6 +11,7 @@ public class BowMechanics : MonoBehaviour {
     public Vector2 lauchDirectionUp = new Vector2(-1, 1).normalized;
     public Vector2 lauchDirectionDown = new Vector2(-1, -1).normalized;
 
+    float chargePower;
     ProjectileMechanics[,] projectilesInMemory;
     int currentArrowSelected = 0;
     int currentListPosition = 0;
@@ -53,10 +54,15 @@ public class BowMechanics : MonoBehaviour {
 
     public void fire(bool fireInput)
     {
-        if (!fireInput) return;
-        anim.SetBool("AngleUp", directionUp);
-        anim.SetBool("AngleDown", directionDown);
-        anim.SetTrigger("Shoot");
+        if (fireInput) chargePower += Time.deltaTime;
+        else if (!fireInput && chargePower > 0)
+        {
+            chargePower = 0;
+            anim.SetBool("AngleUp", directionUp);
+            anim.SetBool("AngleDown", directionDown);
+            anim.SetTrigger("Shoot");
+        }
+        
     }
 
 
