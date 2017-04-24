@@ -9,6 +9,9 @@ public class PlayerController : MonoBehaviour {
     BowMechanics bowMechanics;
     Dodge dodgeMechanics;
 
+    float hInput = 0;
+    float vInput = 0;
+
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -20,8 +23,8 @@ public class PlayerController : MonoBehaviour {
 
     void Update()
     {
-        float hInput = Input.GetAxisRaw("Horizontal");
-
+        hInput = Input.GetAxisRaw("Horizontal");
+        vInput = Input.GetAxisRaw("Vertical");
         anim.SetFloat("Vertical", Input.GetAxisRaw("Vertical"));
         movement.setHorizontalInput(hInput);
         jump.jump(Input.GetButtonDown("Jump"));
@@ -36,6 +39,10 @@ public class PlayerController : MonoBehaviour {
         bowMechanics.fire();
     }
 
+    public float getInput()
+    {
+        return this.vInput;
+    }
 
     private class BufferInput
     {
