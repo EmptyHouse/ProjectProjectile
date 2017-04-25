@@ -7,19 +7,18 @@ public class Ladder : MonoBehaviour {
     PlayerController playerController;
     Animator playerAnim;
     Rigidbody2D playerRigid;
-    CustomGravity playerCustomGravity;
+    //CustomGravity playerCustomGravity;
+    bool playerClimbing;
 
     void FixedUpdate()
     {
-        if (playerController)
+        if (playerController && Mathf.Abs(playerController.getInput()) > .5f) playerClimbing = true;
+        if (Input.GetButtonDown("Jump")) playerClimbing = false;
+        if (playerAnim) playerAnim.SetBool("Climbing", playerClimbing);
+        if (playerController && playerClimbing)
         {
             if (!playerAnim) playerAnim = playerController.GetComponent<Animator>();
             if (!playerRigid) playerRigid = playerController.GetComponent<Rigidbody2D>();
-            if (!playerCustomGravity)
-            {
-                playerCustomGravity = playerController.GetComponent<CustomGravity>();
-                playerCustomGravity.enabled = false;
-            }
 
             float vInput = playerController.getInput();
             if (vInput > .5f)
@@ -36,6 +35,7 @@ public class Ladder : MonoBehaviour {
                 playerRigid.velocity = Vector2.zero;
             }
         }
+        
     }
 
     void climbUp(bool isUp)
@@ -66,22 +66,23 @@ public class Ladder : MonoBehaviour {
         PlayerController p = collider.GetComponent<PlayerController>();
         if (p)
         {
-            if (playerAnim)
-            {
-                playerAnim.speed = 1;
-                playerAnim = null;
-            }
-
-            if (playerRigid)
-            {
-                playerRigid = null;
-            }
-            if (playerCustomGravity)
-            {
-                playerCustomGravity.enabled = true;
-                playerCustomGravity = null;
-            }
-            playerController = null;
+            cleanUp();
         }
+    }
+
+    void cleanUp()
+    {
+        if (playerAnim)
+        {
+            playerAnim.speed = 1;
+            playerAnim = null;
+            playerAnim.SetBool("Climbing", false);
+        }
+
+        if (playerRigid)
+        {
+            playerRigid = null;
+        }
+        playerController = null;
     }
 }
