@@ -20,8 +20,10 @@ public class UIOverseer : MonoBehaviour {
     }
     #endregion global variables
 
+    #region reference variables
     public RectTransform PauseMenuOverlay;
-    public RectTransform EnemyStatOverlay;
+    public EnemyUIContainer EnemyStatOverlay;
+    #endregion referecne variables
 
     private void Awake()
     {
