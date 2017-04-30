@@ -3,33 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameSettings : MonoBehaviour {
-    private GameSettings instance;
+    #region global variables
+    private static GameSettings instance;
 
-    public GameSettings Instance
+    public static GameSettings Instance
     {
         get
         {
-            if (instance != null)
+            if (instance == null)
             {
-                return this.instance;
+                instance = GameObject.FindObjectOfType<GameSettings>();
+                return instance;
             }
             else
             {
-                this.instance = GameObject.FindObjectOfType<GameSettings>();
-                return this.instance;
+                return instance;
             }
         }
     }
+    #endregion global variables
+
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     #region variable settings
-    //public bool debugMode = false;
-    public bool displayHitboxes = false;
-    public bool displayHurtboxes = false;
     public bool displayHealthbars = false;
     #endregion variable settings
 
-    public void disableAllDeveloperSettings()
-    {
-
-    }
+    
 }
