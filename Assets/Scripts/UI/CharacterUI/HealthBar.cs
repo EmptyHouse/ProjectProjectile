@@ -27,6 +27,7 @@ public class HealthBar : MonoBehaviour {
     private void OnEnable()
     {
         healthBarSlider.gameObject.SetActive(true);
+        updateHealtBarValue();
     }
 
     private void OnDisable()

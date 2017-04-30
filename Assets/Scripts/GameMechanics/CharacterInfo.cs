@@ -6,11 +6,13 @@ public class CharacterInfo : MonoBehaviour {
     public float maxHealth = 100;
     public float currentHealth { get; private set; }
     Animator anim;
+    HealthBar healthBar;
 
     void Awake()
     {
         currentHealth = maxHealth;
         anim = GetComponent<Animator>();
+        healthBar = GetComponentInChildren<HealthBar>();
     }
 
     public void takeDamage(float damage)
@@ -20,6 +22,7 @@ public class CharacterInfo : MonoBehaviour {
         {
             anim.SetTrigger("Kill");
         }
+        if (healthBar) healthBar.updateHealtBarValue();
     }
 
     public virtual void killSelf()
