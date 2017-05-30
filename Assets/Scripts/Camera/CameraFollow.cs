@@ -3,31 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraFollow : MonoBehaviour {
-    public float speed;
+    public float followSpeed = 10;
 
-    Transform target;
-    Vector3 offset;
+    Vector3 offsetVector;
+    Transform targetTransform;
 
-    void Start()
+    #region Monobehaviour
+    private void Start()
     {
-        Transform p = transform.parent;
-        while (p.parent != null)
+        if (!this.transform.parent)
         {
-            p = p.parent;
+            Debug.LogWarning("The camera does not have a parent object associated with it. Please parent the camera to the object you would like to follow.");
+            this.enabled = false;
+            return;
         }
-
-        float xOffset = this.transform.position.x - p.position.x;
-        float yOffset = this.transform.position.y - p.position.y;
-        float zOffset = this.transform.position.z - p.position.z;
-        this.target = p;
-        this.transform.parent = null;
-        offset = new Vector3(xOffset, yOffset, zOffset);
+        
+        targetTransform = this.transform.parent;
+        offsetVector = this.transform.position - targetTransform.position;
+        this.transform.SetParent(null);
     }
 
-
-    void Update()
+    private void FixedUpdate()
     {
-        this.transform.position = Vector3.Lerp(this.transform.position, target.position + offset, Time.deltaTime * speed);
+        this.transform.position = Vector3.Lerp(this.transform.position, targetTransform.position + offsetVector, Time.fixedDeltaTime * followSpeed);
     }
+    #endregion Monobehaviour
 
+    public void SetNewTargetFollow(Transform targetTransform, Vector3 offsetVector = new Vector3())
+    {
+        this.targetTransform = targetTransform;
+        this.offsetVector = offsetVector;
+    }
 }
