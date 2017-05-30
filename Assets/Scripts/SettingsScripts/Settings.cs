@@ -20,6 +20,10 @@ public class Settings : MonoBehaviour {
         }
     }
 
+    #region Main Variables
+    public bool debugDraw = true;
+    #endregion Main Variables
+
 
 
     private void Awake()
