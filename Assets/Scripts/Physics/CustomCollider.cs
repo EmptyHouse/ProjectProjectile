@@ -27,12 +27,13 @@ public class CustomCollider : MonoBehaviour {
     private void Update()
     {
         updateCorners();
+        checkColliderHorizontal(rigid.velocity.x);
+        checkColliderVertical(rigid.velocity.y);
     }
 
     private void LateUpdate()
     {
-        checkColliderHorizontal(rigid.velocity.x);
-        checkColliderVertical(rigid.velocity.y);
+        
     }
 
     private void OnValidate()
@@ -96,9 +97,12 @@ public class CustomCollider : MonoBehaviour {
             hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Abs(xVel) * Time.deltaTime, LayerMask.GetMask(layerMask));
             if (hit)
             {
-                transform.position = new Vector3(hit.point.x + (transform.position.x - ray.origin.x), transform.position.y, transform.position.z);
-                rigid.velocity.x = 0;
-                return;
+                GroundCollision groundCollision = hit.collider.GetComponent<GroundCollision>();
+                if (groundCollision)
+                {
+
+                }
+                
             }
             if (Settings.Instance.debugDraw)
             {

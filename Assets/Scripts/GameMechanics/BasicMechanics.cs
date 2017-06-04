@@ -52,6 +52,20 @@ public class BasicMechanics : MonoBehaviour {
         updateDirection();
     }
 
+    protected virtual void OnValidate()
+    {
+        if (timeToJumpHeight <= 0)
+        {
+            timeToJumpHeight = .001f;
+        }
+        if (jumpHeight < 0)
+        {
+            jumpHeight = 0;
+        }
+        if (!rigid) rigid = GetComponent<CustomPhysics>();
+        calculateJumpPhysics();
+    }
+
     #endregion monobehaviour
 
     protected virtual void updateMovementGround()
