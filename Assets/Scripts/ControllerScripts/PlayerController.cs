@@ -12,8 +12,9 @@ public class PlayerController : MonoBehaviour {
 
     private void Update()
     {
-        playerMechanics.setHorizontalInput(1);
+        playerMechanics.setHorizontalInput(Input.GetAxisRaw("Horizontal"));
         playerMechanics.setVerticalInput(Input.GetAxisRaw("Vertical"));
+        playerMechanics.jump(Input.GetButtonDown("Jump"));
     }
 
 

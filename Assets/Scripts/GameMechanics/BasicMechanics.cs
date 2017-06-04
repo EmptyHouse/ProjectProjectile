@@ -87,7 +87,7 @@ public class BasicMechanics : MonoBehaviour {
     {
         rigid.gravityScale = (2 * jumpHeight / Mathf.Pow(timeToJumpHeight, 2) / CustomPhysics.GRAVITY);
         jumpVelocity = Mathf.Abs(rigid.gravityScale) * CustomPhysics.GRAVITY * timeToJumpHeight;
-        print("Gravity Scale: " + rigid.gravityScale + " Jump Velocity: " + jumpVelocity);
+        //print("Gravity Scale: " + rigid.gravityScale + " Jump Velocity: " + jumpVelocity);
     }
 
     #region controller methods
@@ -99,6 +99,14 @@ public class BasicMechanics : MonoBehaviour {
     public void setVerticalInput(float yInput)
     {
         this.inputDirection.y = yInput;
+    }
+
+    public void jump(bool jumpButton)
+    {
+        if (jumpButton)
+        {
+            rigid.velocity.y = jumpVelocity;
+        }
     }
 
     public float getHorizontalInput()

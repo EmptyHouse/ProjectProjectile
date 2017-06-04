@@ -22,6 +22,7 @@ public class Settings : MonoBehaviour {
 
     #region Main Variables
     public bool debugDraw = true;
+    public bool debugGameStats = true;
     #endregion Main Variables
 
 

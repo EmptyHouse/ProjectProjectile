@@ -2,21 +2,23 @@
 using UnityEngine;
 
 public class DebugUI : MonoBehaviour {
+    public RectTransform debugStatsContainer;
     public Text fpsTextDisplay;
 
     private void Update()
     {
-        if (fpsTextDisplay.gameObject.activeSelf)
+        if (Settings.Instance.debugGameStats)
         {
-            if (Time.deltaTime > 0f)
-            {
-                fpsTextDisplay.text = (1.0f / Time.deltaTime).ToString("0.0") + "FPS";
-            }
+            calculateFPSCounter();
         }
     }
 
-    public void toggleFPSDisplay()
+    private void calculateFPSCounter()
     {
-        fpsTextDisplay.gameObject.SetActive(!fpsTextDisplay.gameObject.activeSelf);
+        if (Time.deltaTime > 0)
+        {
+            fpsTextDisplay.text = "FPS: " + (1.0f / Time.deltaTime).ToString("0.0");
+        }
     }
+
 }
