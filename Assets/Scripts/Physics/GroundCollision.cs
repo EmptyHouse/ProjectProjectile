@@ -12,7 +12,6 @@ public class GroundCollision : MonoBehaviour {
     private void Start()
     {
         groundCollider = GetComponent<Collider2D>();
-
     }
 
 
@@ -21,11 +20,10 @@ public class GroundCollision : MonoBehaviour {
     {
         if (isOneWayCollider && rigid.velocity.y > 0)
         {
-            rigid.inAir = true;
             rigid.transform.position = new Vector3(rigid.transform.position.x, groundCollider.bounds.max.y, rigid.transform.position.z);
             return;
         }
-        rigid.inAir = false;
+        
 
     }
 }

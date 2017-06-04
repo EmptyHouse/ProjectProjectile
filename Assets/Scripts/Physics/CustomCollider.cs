@@ -7,6 +7,11 @@ using UnityEngine;
 public class CustomCollider : MonoBehaviour {
     public int verticalRayCount;
     public int horizontalRayCount;
+    [Tooltip("If this value is positive the corners will be positioned closer together when calculating horizontal rays")]
+    public float horizontalOffset;
+    [Tooltip("If this value is positive the corners will be positioned closer together when calculate vertical rays")]
+    public float verticalOffset;
+    public string[] layerMask;
 
     Collider2D boundedCollider;
     CustomPhysics rigid;
@@ -16,15 +21,16 @@ public class CustomCollider : MonoBehaviour {
     private void Start()
     {
         boundedCollider = GetComponent<Collider2D>();
-        rigid = GetComponent<CustomPhysics>();
-        
-
-        
+        rigid = GetComponent<CustomPhysics>();        
     }
 
     private void Update()
     {
         updateCorners();
+    }
+
+    private void LateUpdate()
+    {
         checkColliderHorizontal(rigid.velocity.x);
         checkColliderVertical(rigid.velocity.y);
     }
@@ -44,17 +50,26 @@ public class CustomCollider : MonoBehaviour {
             left = corners.topLeft;
             right = corners.topRight;
         }
+        left.x += verticalOffset;
+        right.x -= verticalOffset;
         Ray2D ray = new Ray2D();
         for (int i = 0; i < verticalRayCount; i++)
         {
             ray.origin = left + ((right - left) / (verticalRayCount - 1)) * i;
             ray.direction = (Vector2.up * yVel).normalized;
+            RaycastHit2D hit;
+            hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Abs(yVel) * Time.deltaTime, LayerMask.GetMask(layerMask));
+            if (hit)
+            {
+                transform.position = new Vector3(transform.position.x, rigid.velocity.y <= 0 ? hit.collider.bounds.max.y : hit.collider.bounds.min.y, transform.position.z);
+                rigid.velocity.y = 0;
+            }
             //print(ray.direction);
             //print(Physics2D.Raycast(ray.origin, ray.direction, Mathf.Abs(yVel) * Time.foxedDeltaTime));
 
             if (Settings.Instance.debugDraw)
             {
-                DebugDrawRaycast(ray.origin, ray.origin + ray.direction * Mathf.Abs(yVel) * Time.fixedDeltaTime);
+                DebugDrawRaycast(ray.origin, ray.origin + ray.direction * Mathf.Abs(yVel) * Time.deltaTime);
             }
         }
     }
@@ -69,16 +84,25 @@ public class CustomCollider : MonoBehaviour {
             top = corners.topLeft;
             bottom = corners.bottomLeft;
         }
+        top.y -= horizontalOffset;
+        bottom.y += horizontalOffset;
         Ray2D ray = new Ray2D();
 
         for (int i = 0; i < horizontalRayCount; i++)
         {
             ray.origin = bottom + ((top - bottom) / (horizontalRayCount - 1)) * i;
             ray.direction = (Vector2.right * xVel).normalized;
-
+            RaycastHit2D hit;
+            hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Abs(xVel) * Time.deltaTime, LayerMask.GetMask(layerMask));
+            if (hit)
+            {
+                transform.position = new Vector3(hit.point.x + (transform.position.x - ray.origin.x), transform.position.y, transform.position.z);
+                rigid.velocity.x = 0;
+                return;
+            }
             if (Settings.Instance.debugDraw)
             {
-                DebugDrawRaycast(ray.origin, ray.origin + ray.direction * Mathf.Abs(xVel) * Time.fixedDeltaTime);
+                DebugDrawRaycast(ray.origin, ray.origin + ray.direction * Mathf.Abs(xVel) * Time.deltaTime);
             }
         }
     }
