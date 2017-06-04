@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour {
 
     private void Update()
     {
-        playerMechanics.setHorizontalInput(Input.GetAxisRaw("Horizontal"));
+        playerMechanics.setHorizontalInput(1);
         playerMechanics.setVerticalInput(Input.GetAxisRaw("Vertical"));
     }
 

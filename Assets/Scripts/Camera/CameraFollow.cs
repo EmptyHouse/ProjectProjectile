@@ -5,8 +5,8 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour {
     public float followSpeed = 10;
 
-    Vector3 offsetVector;
-    Transform targetTransform;
+    private Vector3 offsetVector;
+    private Transform targetTransform;
 
     #region Monobehaviour
     private void Start()
@@ -23,9 +23,9 @@ public class CameraFollow : MonoBehaviour {
         this.transform.SetParent(null);
     }
 
-    private void FixedUpdate()
+    private void LateUpdate()
     {
-        this.transform.position = Vector3.Lerp(this.transform.position, targetTransform.position + offsetVector, Time.fixedDeltaTime * followSpeed);
+        this.transform.position = Vector3.Lerp(this.transform.position, targetTransform.position + offsetVector, Time.deltaTime * followSpeed);
     }
     #endregion Monobehaviour
 

@@ -25,7 +25,7 @@ public class CustomPhysics : MonoBehaviour {
         gravityDirection = gravityDirection.normalized;    
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         updateTransformPosition();
         applyGravity();
@@ -36,11 +36,11 @@ public class CustomPhysics : MonoBehaviour {
     
     void updateTransformPosition()
     {
-        transform.position = transform.position + (new Vector3(velocity.x, velocity.y, 0) * Time.fixedDeltaTime);
+        transform.position = transform.position + (new Vector3(velocity.x, velocity.y, 0) * Time.deltaTime);
     }
 
     void applyGravity()
     {
-        velocity = Vector2.MoveTowards(velocity, new Vector2(velocity.x, 0) + gravityDirection * terminalVelocity, Time.fixedDeltaTime * GRAVITY * gravityScale);
+        velocity = Vector2.MoveTowards(velocity, new Vector2(velocity.x, 0) + gravityDirection * terminalVelocity, Time.deltaTime * GRAVITY * gravityScale);
     }
 }

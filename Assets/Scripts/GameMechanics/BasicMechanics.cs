@@ -19,6 +19,14 @@ public class BasicMechanics : MonoBehaviour {
     [Tooltip("The acceleration of our character while it is in the air")]
     public float inAirAcceleration;
 
+    [Tooltip("The max height that the character will jump")]
+    public float jumpHeight = 4;
+    [Tooltip("The time to reach the provided jumpHeight")]
+    public float timeToJumpHeight = .4f;
+
+    protected float jumpVelocity;
+    protected float jumpAcceleration;
+
     protected Animator anim;
     protected CustomPhysics rigid;
 
@@ -35,6 +43,7 @@ public class BasicMechanics : MonoBehaviour {
     {
         anim = GetComponent <Animator>();
         rigid = GetComponent<CustomPhysics>();
+        calculateJumpPhysics();
     }
 
     protected virtual void Update()
@@ -72,6 +81,13 @@ public class BasicMechanics : MonoBehaviour {
         {
             this.transform.localScale = new Vector3(Mathf.Sign(inputDirection.x), 1, 1);
         }
+    }
+
+    private void calculateJumpPhysics()
+    {
+        rigid.gravityScale = (2 * jumpHeight / Mathf.Pow(timeToJumpHeight, 2) / CustomPhysics.GRAVITY);
+        jumpVelocity = Mathf.Abs(rigid.gravityScale) * CustomPhysics.GRAVITY * timeToJumpHeight;
+        print("Gravity Scale: " + rigid.gravityScale + " Jump Velocity: " + jumpVelocity);
     }
 
     #region controller methods
