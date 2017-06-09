@@ -4,4 +4,8 @@ using UnityEngine;
 
 public class PlayerMechanics : BasicMechanics {
 
+    public void FireWeapon()
+    {
+
+    }
 }

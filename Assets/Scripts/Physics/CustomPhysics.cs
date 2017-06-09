@@ -9,7 +9,7 @@ public class CustomPhysics : MonoBehaviour {
     [Tooltip("The scale of gravity acceleration")]
     public float gravityScale = 1;
     [Tooltip("The maximum falling velocity.")]
-    public float terminalVelocity;
+    public float terminalVelocity = 10;
 
     public bool inAir { get; private set; }
 
@@ -28,8 +28,17 @@ public class CustomPhysics : MonoBehaviour {
         //print(velocity);
     }
 
+    private void OnValidate()
+    {
+        if (gravityScale < 0)
+        {
+            gravityScale = 0;
+            Debug.Log("If you would like gravity to apply to the object in a different direction, consider changing the gravity direction instead");
+        }
+    }
 
-    
+
+
     void updateTransformPosition()
     {
         transform.position = transform.position + (new Vector3(velocity.x, velocity.y, 0) * Time.deltaTime);
